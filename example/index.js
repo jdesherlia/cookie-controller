@@ -1,5 +1,7 @@
 var outputEl = document.getElementById('output');
 
+CookieInterceptor.init();
+
 deleteAllCookies();
 
 log( `Initializing...` )
@@ -8,8 +10,6 @@ document.cookie = ('testing2=' + new Date().getTime())
 document.cookie = ('testing3=' + new Date().getTime())
 
 // Read + Flush Testing
-
-CookieInterceptor.init();
 
 log( `\nAdding read handlers...\n` )
 
@@ -82,6 +82,30 @@ CookieInterceptor.write.use( function ( val ) {
 document.cookie = ('testing8=' + new Date().getTime())
 
 printCookieStatus();
+
+
+
+log( `\nAdding killswitch handlers...\n` )
+
+CookieInterceptor.flushHandlers()
+
+deleteAllCookies();
+
+CookieInterceptor.read.use( function ( cookie ) {
+  log( `\t- read attempt: ${ cookie }` );
+  return cookie;
+});
+
+CookieInterceptor.write.use( function ( val ) {
+  log( `\t- attempt to write: ${ val }` );
+  return ``;
+});
+
+document.cookie = ('testing9=Was-I-Set?')
+
+printCookieStatus();
+
+
 
 
 /* document.cookie = ('time=' + new Date().getTime());
