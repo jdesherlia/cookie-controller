@@ -107,6 +107,10 @@ var api = {
     writeEnabled = false;
     return this;
   },
+  flushHandlers: function () {
+    readHandlers = [];
+    writeHandlers = [];
+  },
   read: {
     enable: function () {
       readEnabled = true;
@@ -119,6 +123,9 @@ var api = {
         throw new TypeError('The callback provided as parameter 1 is not a function.');
       }
       readHandlers.push(callback);
+    },
+    flush: function () {
+      readHandlers = [];
     }
   },
   write: {
@@ -133,6 +140,9 @@ var api = {
         throw new TypeError('The callback provided as parameter 1 is not a function.');
       }
       writeHandlers.push(callback);
+    },
+    flush: function () {
+      writeHandlers = [];
     }
   }
 };
