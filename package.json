@@ -1,7 +1,7 @@
 {
-  "name": "cookie-interceptor",
+  "name": "cookie-controller",
   "version": "1.0.0",
-  "description": "A simple JavaScript utility library for intercepting browser cookies",
+  "description": "A simple JavaScript utility library for intercepting and controlling browser cookies operations",
   "main": "dist/cookie-interceptor.umd.js",
   "jsnext:main": "dist/cookie-interceptor.esm.js",
   "module": "dist/cookie-interceptor.esm.js",
@@ -20,12 +20,14 @@
     "start": "npm-run-all -p watch serve open",
     "minify": "terser dist/cookie-interceptor.umd.js --comments -c -m -o dist/cookie-interceptor.umd.min.js"
   },
-  "repository": "keqingrong/cookie-interceptor",
+  "repository": "jdesherlia/cookie-controller",
   "keywords": [
+    "gdpr",
     "cookie",
-    "interceptor"
+    "controller",
+    "interceptor",
+    "monkey patch"
   ],
-  "author": "Qingrong Ke <keqingrong1992@gmail.com> (https://keqingrong.github.io/)",
   "license": "MIT",
   "devDependencies": {
     "npm-run-all": "^4.1.3",
