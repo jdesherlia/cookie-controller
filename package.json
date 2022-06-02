@@ -1,6 +1,6 @@
 {
   "name": "cookie-controller",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A simple JavaScript utility library for intercepting and controlling browser cookies operations",
   "main": "dist/cookie-interceptor.umd.js",
   "jsnext:main": "dist/cookie-interceptor.esm.js",
